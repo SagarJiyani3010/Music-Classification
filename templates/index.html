@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+</head>
+
+<body>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <div class="container">
+        <div class="frame">
+            <div style="margin-top: 28px;">
+                <center>
+                    <u style="color: #FFF;">
+                        <h2 style="color: #FFF;">Prediction Form</h2>
+                    </u>
+                </center>
+            </div>
+
+            <div ng-app ng-init="checked = false">
+                <form class="form-signin" action="{{ url_for('predict') }}" method="post" name="form">
+                    <div class="row">
+                        <div class="col-sm-6" style="color: white;">Bit Rate</div>
+                        <div class="col-sm-6" style="color: white;">Duration </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="bit_rate" step="any" />
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="duration" step="any"><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6" style="color: white;">Acousticness</div>
+                        <div class="col-sm-6" style="color: white;">Danceability </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="acousticness" step="any"><br /><br />
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="danceability" step="any"><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6" style="color: white;">Enter energy</div>
+                        <div class="col-sm-6" style="color: white;">Enter instrumentalness </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="energy" step="any"><br /><br />
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="instrumentalness" step="any"><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6" style="color: white;">Liveness</div>
+                        <div class="col-sm-6" style="color: white;">Speechiness </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="liveness" step="any"><br /><br />
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="speechiness" step="any"><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6" style="color: white;">Tempo</div>
+                        <div class="col-sm-6" style="color: white;">Valence </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="tempo" step="any"><br /><br />
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-styling" type="number" name="valence" step="any"><br /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <input class="btn-animate" type="submit">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </form>
+                <h1>{{ predict }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
